@@ -1,0 +1,141 @@
+.hero {
+  position: relative;
+  min-height: 92svh;
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-96);
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  mask-image: radial-gradient(
+    75% 75% at 50% 45%,
+    #000 40%,
+    transparent 92%
+  );
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-16);
+  /* nada aqui dentro é clicável: deixa o mouse "atravessar" pro grid
+     animado atrás, pra ele acender também por baixo do texto */
+  pointer-events: none;
+}
+
+.hero__title {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  font-size: var(--text-display);
+  letter-spacing: var(--track-tight);
+  line-height: 1.15;
+  background: var(--signal);
+  color: var(--void);
+  padding: 0 0.12em;
+}
+
+.hero__role {
+  max-width: 36ch;
+  font-size: var(--text-subheading);
+  color: var(--cloud);
+  margin-top: var(--space-8);
+}
+
+.hero__meta {
+  margin-top: var(--space-24);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: #000000;
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.hero__badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 0 3px var(--signal-wash);
+}
+
+.hero__based {
+  font-size: var(--text-sm);
+  color: var(--signal);
+}
+
+.hero__contact {
+  pointer-events: auto;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--white);
+  border-bottom: 1px solid var(--line-strong);
+  transition: border-color var(--dur-micro) var(--ease-out);
+}
+
+.hero__contact:hover {
+  border-color: var(--signal);
+}
+
+.hero__scroll {
+  position: absolute;
+  z-index: 1;
+  right: var(--gutter);
+  bottom: var(--space-32);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--pewter);
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(var(--pewter), transparent);
+  animation: hero-scroll-pulse 2s var(--ease-in-out) infinite;
+}
+
+@keyframes hero-scroll-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 40rem) {
+  .hero {
+    min-height: 88svh;
+  }
+  .hero__scroll {
+    display: none;
+  }
+}

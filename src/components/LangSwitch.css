@@ -1,0 +1,38 @@
+.langsw {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.langsw__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.langsw__sep {
+  color: var(--pewter);
+}
+
+.langsw__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 0.2rem;
+  border-radius: var(--radius);
+  color: var(--ash);
+  transition: color var(--dur-micro) var(--ease-out);
+}
+
+.langsw__btn:hover {
+  color: var(--cloud);
+}
+
+.langsw__btn[data-on="true"] {
+  color: var(--signal);
+}
